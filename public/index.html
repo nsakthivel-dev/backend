@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoltGrid Cloud Gateway | Service Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(16, 185, 129, 0.4);
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.25);
+      --accent: #3b82f6;
+      --text: #f9fafb;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #172554 0%, #090d16 65%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 12px #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: var(--muted);
+      margin: 0 0 36px;
+      font-size: 16px;
+      max-width: 620px;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      text-align: left;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 20px var(--primary-glow);
+    }
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+    .card-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #38bdf8;
+    }
+    .status-panel {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 16px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      color: #f1f5f9;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">
+      <div class="pulse-dot"></div>
+      VoltGrid Cloud Gateway • Online
+    </div>
+
+    <h1>VoltGrid API Gateway</h1>
+    <p class="subtitle">Cloud backend service active and connected to Supabase PostgreSQL. Powering the multi-portal EV ecosystem.</p>
+
+    <div class="grid">
+      <a class="card" href="https://ev-booking.netlify.app" target="_blank" rel="noopener">
+        <div>
+          <div class="card-icon">🚗</div>
+          <div class="card-title">EV Booking App</div>
+          <div class="card-url">ev-booking.netlify.app ↗</div>
+        </div>
+      </a>
+
+      <a class="card" href="https://ev-shop-management.netlify.app" target="_blank" rel="noopener">
+        <div>
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Shop Management</div>
+          <div class="card-url">ev-shop-management.netlify.app ↗</div>
+        </div>
+      </a>
+
+      <a class="card" href="https://grid-admin.netlify.app" target="_blank" rel="noopener">
+        <div>
+          <div class="card-icon">🏢</div>
+          <div class="card-title">Grid Capacity Power</div>
+          <div class="card-url">grid-admin.netlify.app ↗</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="status-panel">
+      <div class="status-item">
+        <span>API Prefix:</span>
+        <span class="mono">/api</span>
+      </div>
+      <div class="status-item">
+        <span>PostgreSQL Host:</span>
+        <span class="mono">db.zabxtltqxpmfvjsvmwfv.supabase.co</span>
+      </div>
+      <div class="status-item">
+        <span>Test Endpoint:</span>
+        <a class="mono" href="/api" style="color: #38bdf8; text-decoration: none;">/api (JSON) ↗</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

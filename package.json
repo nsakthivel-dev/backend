@@ -1,0 +1,10 @@
+{
+  "name": "voltgrid-backend",
+  "version": "1.0.0",
+  "description": "VoltGrid EV Platform Backend & Cloud API Gateway",
+  "private": true,
+  "main": "api/index.js",
+  "engines": {
+    "node": ">=18.x"
+  }
+}
